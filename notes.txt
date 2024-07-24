@@ -1,0 +1,125 @@
+Backend Tutorial:
+
+Server is a software which could be hosted by any device (small or large scale).
+Usually servers are hosted on heavy computational devices to handle multiple requests.
+
+JavaScript is used in Backend since the time its stand-alone runtime was developed.
+Like V8 and all.
+
+Two major components in Backend Dev:
+A Programming Language (+ its Framework) for writing backend and business logic + Database for storage
+
+Backend logic is written once but could be used in multiple machines for Load Balancing.
+
+Database is almost everytime at some far off location.
+
+Browser, Mobile <----> API <----> Backend <----> DataBase
+
+Backend response is in API format.
+
+Interact with Data, File and Third Party (API) handling.
+
+Directory Structure:
+package.json, .env, readme, git,.....,
+src:
+index(connect DB) app(for configurations) constants(imply restrictions)
+DB(code to connect database)
+Models(data schema)
+Controllers(functions/functionality written diffrently)
+Routes(routes defined for each web url)
+Middlewares(middle functions before accepting and processing request)
+Utils(Utilities, reusable things)
+More...
+
+NodeJS is a runtime environment.
+
+Device  <===>  Server
+       Express
+Express handles this request and response handling.
+Server constantly listens for request.
+"/" url is home route.
+request are of many types. Here we are dealing with get request.
+
+npm init/npm init -y to make/initialise node application.
+-y for saying yes to everything.
+node file_name.js to run it.
+We can tab after partially writing directory we wish to visit in.
+
+In package.json, scripts is where we make script commands for dev, test, build, start, etc.
+
+Express is framework for Node.
+
+npm is node package manager.
+Many in-built packages exist in Node community which correspond to some usage or functionality which we can use by just installing and reading its documentation.
+
+dependencies is where we get to know which packages we have.
+
+React has Hot-Reloading, just as we save the code, it refreshes/restart itself.
+
+some constants are defined in .env file and leter accessed wherever needed using require.
+
+we just couldn't assume environment variables will be the same for everyone.
+someone can have busy port no. which we intend to build server on.
+env variables even have some sensitive information that we might not intend to disclose in the code itself.
+so we use .env
+Production application is different in the same way.
+
+to deploy in digital ocean:
+create -->apps (droplets works too)
+src code from github
+git repo
+which branch is stable to deploy
+CI/CD pipelining to automatically refresh as repo changes.
+Set env variables in it.
+This critical information of env variables will remain anonymous in system after deployment.
+PORT might get updated but other env variables won't be overwritten.
+
+This deployment creates container,...
+We can change scripts too.
+
+"npm create vite@latest ." for creating react app in the same directory.
+
+Many ways to make fetch/api requests like axios, fetch, react query.
+npm i axios.
+axios library sepcifically written for web requesting and has extra functionalities.
+
+CORS: Provides safety to application.
+Cross origin request handles requests from other origins.
+Build so that server requests are not overloaded and ensure that it cannot be accessed by anyone.
+URL different and if port different then too cross origin considered (of different origin).
+So requests are not entertained.
+
+Solution:
+Whitelist a url in backend logic using CORS package.
+Everytime we won't know which port the hosting service is serving the frontend.
+So we need to think about environment variables there too.
+
+Its a good practice to add ../api/... to urls that are meant to serve data from backend.
+Everytime writing the main url can be exhausting.
+It also could be that main url could be different but the route inside it is same for fetching data.
+So we introduce Proxy:
+Standardization:
+add "proxy": "___url", in create react app
+in vite: vite.config.js file, add server: {......},
+add proxy: {.....},
+here '/api': '_______url to append to prefix',
+
+Whenever api is mentioned in route, the url will be appended.
+As well as it will proxied that the request is coming from the same url.
+Now if we deploy(if we insert the hosted server url in it (right now it is http://localhost:5000 but later as it is hosted somewhere else it would be different)), then too it would be no problem occurence since the request would be as if it is coming from origin of the given url.
+No CORS error.
+CORS error could also be resolved in backend by whitelisting.
+
+npm run build transforms modules and gives us distribution folder(dist).
+Avoid putting this distribution folder in backend and serving static frontend using
+app.use(express.static('dist'));
+since everytime we make changes in frontend, we need to build all over again and replace.
+
+Data Modelling is defining Structure of data (fields).
+
+Prisma, Mongoose are used for object/data modelling.
+
+Modelling is very important before creating any application so as to avoid changes in models and thereby avoid any big changes.
+Order doesn't matter in object unlike arrays.
+
+MongoDB creates unique IDs on its own for each entry.
