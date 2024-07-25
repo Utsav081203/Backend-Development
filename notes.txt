@@ -123,3 +123,27 @@ Modelling is very important before creating any application so as to avoid chang
 Order doesn't matter in object unlike arrays.
 
 MongoDB creates unique IDs on its own for each entry.
+
+Before uploading image to cloud, we might need to store it temporarily somewhere/on server incase some connection lost.
+
+.gitkeep is used to maintain and store empty directories on github.
+add it to those empty directories.
+
+gitignore is also used to avoid pushing sensitive information on github.
+
+gitignore generators online could also give us list of things in text for us to include in gitignore for technologies differently.
+
+environment variables are extracted from system not from files.
+(for extra security)
+
+dependencies v/s dev dependencies (not taken to production, only limited to development)
+
+npm i -D _______
+-D for dev dependency.
+dev script must be changed too.
+
+nodemon, prettier is dev dependency.
+
+.prettierignore file used to know prettier must ignore which files.
+
+.env has few problems with module way of importing dependencies.
